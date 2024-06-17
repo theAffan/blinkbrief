@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-header {
+    border-bottom: none;
+    background-color: white;
+}
+
+
+.navbar-brand {
+    font-size: x-large;
+}

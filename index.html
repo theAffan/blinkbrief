@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-scheme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="color-scheme" content="dark light">
+    <link rel="icon" href="favicon.svg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>BlinkBriefs</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand">BlinkBriefs</a>
+        </div>
+    </nav>
+
+    <div class="card mx-5 my-5 shadow p-3 mb-5 bg-body rounded">
+        <div class="card-header">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="youtube-tab-btn" data-bs-toggle="tab"
+                        data-bs-target="#youtube-section" type="button" role="tab" aria-controls="youtube-section"
+                        aria-selected="true">Youtube Video</button>
+                    <button class="nav-link" id="text-tab-btn" data-bs-toggle="tab" data-bs-target="#text-section"
+                        type="button" role="tab" aria-controls="text-section" aria-selected="false">Text</button>
+                    <!-- <button class="nav-link" id="news-tab-btn" data-bs-toggle="tab" data-bs-target="#news-section"
+                        type="button" role="tab" aria-controls="news-section" aria-selected="false">News
+                        Article</button> -->
+                    <button class="nav-link" id="wiki-tab-btn" data-bs-toggle="tab" data-bs-target="#wiki-section"
+                        type="button" role="tab" aria-controls="wiki-section" aria-selected="false">Wikipedia
+                        Query</button>
+                </div>
+            </nav>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="nav-tabContent">
+
+                <!-- Youtube Section -->
+                <div class="container tab-pane fade show active" id="youtube-section" role="tabpanel">
+                    <div class="row">
+                        <div class="youtube-input col-md-6">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="youtube-link-input" class="form-label">Youtube Video Link:</label>
+                                    <input type="text" class="form-control" id="youtube-link-input"
+                                        placeholder="Enter the link for your youtube video">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="youtube-percentage-input" class="form-label">Length of Summary:</label>
+                                    <select class="form-select" id="youtube-percentage-input">
+                                        <option value="15" selected>10%-20%</option>
+                                        <option value="25">20%-30%</option>
+                                        <option value="35">30%-40%</option>
+                                        <option value="45">40%-50%</option>
+                                        <option value="55">50%-60%</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary" id="youtube-submit-btn">
+                                    <div class="spinner-border spinner-border-sm me-2 d-none" id="youtube-spinner" role="status">
+                                    </div>
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                        <div class="youtube-output col-md-6">
+                            <div class="mb-3">
+                                <label for="youtubeSummaryTextarea" class="form-label">Summary:</label>
+                                <textarea class="form-control" id="youtubeSummaryTextarea" rows="10"
+                                    placeholder="Your summary will be generated here..." disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Section -->
+                <div class="container tab-pane fade" id="text-section" role="tabpanel">
+                    <div class="row">
+                        <div class="text-input col-md-6">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="text-input" class="form-label">Text:</label>
+                                    <textarea class="form-control" id="text-input" rows="9"
+                                        placeholder="Enter the text here..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="text-percentage-input" class="form-label">Length of Summary:</label>
+                                    <select class="form-select" id="text-percentage-input">
+                                        <option value="15" selected>10%-20%</option>
+                                        <option value="25">20%-30%</option>
+                                        <option value="35">30%-40%</option>
+                                        <option value="45">40%-50%</option>
+                                        <option value="55">50%-60%</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary" id="text-submit-btn">
+                                    <div class="spinner-border spinner-border-sm me-2 d-none" id="text-spinner" role="status">
+                                    </div>
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                        <div class="text-output col-md-6">
+                            <div class="mb-3">
+                                <label for="textSummaryTextarea" class="form-label">Summary:</label>
+                                <textarea class="form-control" id="textSummaryTextarea" rows="12"
+                                    placeholder="Your summary will be generated here..." disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Article Section -->
+                <div class="container tab-pane fade" id="news-section" role="tabpanel">
+                    <div class="row">
+                        <div class="news-input col-md-6">
+                            <form action="">
+                                <div class="mb-3">
+                                    <label for="news-link-input" class="form-label">News Article Link:</label>
+                                    <input type="text" class="form-control" id="news-link-input"
+                                        placeholder="Enter the link of the news article">
+                                </div>
+                                <button type="button" class="btn btn-primary" id="news-submit-btn">
+                                    <div class="spinner-border spinner-border-sm me-2 d-none" id="news-spinner" role="status">
+                                    </div>
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                        <div class="news-output col-md-6">
+                            <div class="mb-3">
+                                <label for="newsArticleSummaryTextarea" class="form-label">Summary:</label>
+                                <textarea class="form-control" id="newsArticleSummaryTextarea" rows="10"
+                                    placeholder="Your summary will be generated here..." disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wikipedia Query Section -->
+                <div class="container tab-pane fade" id="wiki-section" role="tabpanel">
+                    <div class="row">
+                        <div class="wiki-input col-md-6">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="wiki-input" class="form-label">Wikipedia Query:</label>
+                                    <input type="text" class="form-control" id="wiki-input"
+                                        placeholder="Enter the query for Wikipedia">
+                                </div>
+                                <button type="button" class="btn btn-primary" id="wiki-submit-btn">
+                                    <div class="spinner-border spinner-border-sm me-2 d-none" id="wiki-spinner" role="status">
+                                    </div>
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                        <div class="wiki-output col-md-6">
+                            <div class="mb-3">
+                                <label for="wikipediaSummaryTextarea" class="form-label">Summary:</label>
+                                <textarea class="form-control" id="wikipediaSummaryTextarea" rows="10"
+                                    placeholder="Your summary will be generated here..." disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
